@@ -23,9 +23,9 @@ message_encoded="$msg"
 
 send_at_command() {
     local cmd=$1
-    echo -en "$cmd\r" | microcom -t 100 /dev/ttyOUT2
+    echo -en "$cmd\r" | busybox microcom -t 100 /dev/ttyUSB2
 }
 
 send_at_command "AT+CMGS=\"$phone_number\","$Command""
-runcmd=$((echo -en "$message_encoded"; echo -en "\x1A") | microcom -t 500 /dev/ttyOUT2)
+runcmd=$((echo -en "$message_encoded"; echo -en "\x1A") | busybox microcom -t 500 /dev/ttyUSB2)
 echo "$runcmd"

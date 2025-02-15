@@ -19,7 +19,7 @@ if [ -n "${MYATCMD}" ]; then
     # Initialize wait time to 200 ms
     wait_time=200
     while true; do
-        runcmd=$(echo -en "$x\r\n" | microcom -t $wait_time /dev/ttyOUT2)
+        runcmd=$(echo -en "$x\r\n" | busybox microcom -t $wait_time /dev/ttyUSB2)
         # Check if "OK" or "ERROR" is present in the response
         if [[ $runcmd =~ "OK" ]] || [[ $runcmd =~ "ERROR" ]]; then
             break  # Exit the loop if "OK" or "ERROR" is found
