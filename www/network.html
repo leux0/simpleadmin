@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Simple Admin</title>
+    <title>模组管理</title>
     <!-- <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -27,7 +27,7 @@
         <nav class="navbar navbar-expand-lg mt-2">
           <div class="container-fluid">
             <a class="navbar-brand" href="/"
-              ><span class="mb-0 h4">Simple Admin</span></a
+              ><span class="mb-0 h4">模组管理</span></a
             >
             <button
               class="navbar-toggler"
@@ -43,31 +43,31 @@
             <div class="collapse navbar-collapse" id="navbarText">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" href="/">Home</a>
+                  <a class="nav-link" href="/">首页</a>
                 </li>
                 <li class="nav-item">
                   <a
                     class="nav-link active"
                     href="network.html"
                     aria-current="page"
-                    >Simple Network</a
+                    >网络</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/scanner.html">Simple Scan</a>
+                  <a class="nav-link" href="/scanner.html">扫描</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/settings.html">Simple Settings</a>
+                  <a class="nav-link" href="/settings.html">设置</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/sms.html">SMS</a>
+                  <a class="nav-link" href="/sms.html">短信</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/console">Console</a>
+                  <a class="nav-link" href="/console">终端</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="deviceinfo.html"
-                    >Device Information</a
+                    >设备</a
                   >
                 </li>
               </ul>
@@ -85,7 +85,7 @@
             <div class="card">
               <div class="card-header">
                 <div class="row align-items-center">
-                  <div class="col">Band Locking</div>
+                  <div class="col">频段锁定</div>
                   <div class="col-md-3">
                     <select
                       class="form-select"
@@ -101,7 +101,7 @@
               </div>
               <div class="card-body">
                 <h5 class="card-subtitle" x-show="isGettingBands === true">
-                  Fetching supported bands...
+                  正在获取支持的频段。。。
                 </h5>
                 <form id="checkboxForm" x-show="isGettingBands === false">
                   <!-- Checkboxes will be populated here -->
@@ -115,21 +115,21 @@
                       class="btn btn-primary m-2"
                       @click="lockSelectedBands()"
                     >
-                      Lock Bands
+                      锁定频段
                     </button>
                     <button
                       type="button"
                       class="btn btn-info m-2"
                       id="uncheckAll"
                     >
-                      Uncheck All
+                      取消勾选
                     </button>
                     <button
                       type="button"
                       class="btn btn-danger m-2"
                       @click="resetBandLocking()"
                     >
-                      Reset
+                      频段复位
                     </button>
                   </div>
                   <div class="form-check">
@@ -141,13 +141,13 @@
                       onchange="saveCheckboxState()"
                     />
                     <label class="form-check-label" for="providerBands">
-                      Show Provider Supported Bands
+                      显示支持的频段
                     </label>
                   </div>
                 </div>
               </div>
               <div class="card-footer">
-                <p x-text="'Active bands: ' + bands"></p>
+                <p x-text="'当前频段：' + bands"></p>
               </div>
             </div>
           </div>
@@ -157,24 +157,24 @@
           <div class="col">
             <form>
               <div class="card">
-                <div class="card-header">Network Utilities</div>
+                <div class="card-header">网络工具</div>
                 <div class="card-body row">
                   <div class="col">
                     <div class="mb-4">
-                      <label for="APN" class="form-label">APN</label>
+                      <label for="APN" class="form-label">接入点</label>
                       <input
                         type="text"
                         class="form-control"
                         id="APN"
                         x-model="newApn"
                         aria-describedby="APN"
-                        x-bind:placeholder="apn === '-' ? 'Fetching...' : apn"
+                        x-bind:placeholder="apn === '-' ? '获取中...' : apn"
                       />
                     </div>
 
                     <div class="mb-4">
                       <label for="ipForAPN" class="form-label"
-                        >Choose APN PDP Type</label
+                        >选择PDP类型</label
                       >
                       <select
                         class="form-select"
@@ -184,17 +184,17 @@
                       >
                         <option
                           selected
-                          x-text="apnIP === '-' ? 'Fetching...' : 'Current: ' + apnIP"
+                          x-text="apnIP === '-' ? '获取中...' : 'Current: ' + apnIP"
                         ></option>
-                        <option value="1">IPv4 Only</option>
-                        <option value="2">IPv6 Only</option>
+                        <option value="1">仅 IPv4</option>
+                        <option value="2">仅 IPv6</option>
                         <option value="3">IPv4v6</option>
-                        <option value="4">P2P Protocol</option>
+                        <option value="4">P2P协议</option>
                       </select>
                     </div>
 
                     <div class="mb-4 input-group grid gap-3">
-                      <label for="SIM1" class="form-label"> Change SIM</label>
+                      <label for="SIM1" class="form-label">更改SIM卡</label>
                       <div class="form-check form-check-inline">
                         <input
                           class="form-check-input"
@@ -231,7 +231,7 @@
                   <div class="col">
                     <div class="mb-4">
                       <label for="nrModeControl" class="form-label"
-                        >Select Preferred Network</label
+                        >首选网络</label
                       >
                       <select
                         class="form-select"
@@ -241,17 +241,17 @@
                       >
                         <option
                           selected
-                          x-text="prefNetwork === '-' ? 'Fetching...' : 'Current: ' + prefNetwork"
+                          x-text="prefNetwork === '-' ? '获取中...' : 'Current: ' + prefNetwork"
                         ></option>
-                        <option value="AUTO">AUTO</option>
-                        <option value="LTE">LTE Only</option>
+                        <option value="AUTO">自动</option>
+                        <option value="LTE">仅 LTE</option>
                         <option value="LTE:NR5G">NR5G-NSA</option>
                         <option value="NR5G">NR5G-SA</option>
                       </select>
                     </div>
                     <div class="mb-4">
                       <label for="prefNetwork" class="form-label"
-                        >NR5G Mode Control</label
+                        >5G模式控制</label
                       >
                       <select
                         class="form-select"
@@ -261,11 +261,11 @@
                       >
                         <option
                           selected
-                          x-text="nrModeControl === '-' ? 'Fetching...' : 'Current: ' + nrModeControl"
+                          x-text="nrModeControl === '-' ? '获取中...' : 'Current: ' + nrModeControl"
                         ></option>
-                        <option value="0">Enable All</option>
-                        <option value="2">Disable NR5G-NSA</option>
-                        <option value="1">Disable NR5G-SA</option>
+                        <option value="0">开启 全部</option>
+                        <option value="2">关闭 NR5G-NSA</option>
+                        <option value="1">关闭 NR5G-SA</option>
                       </select>
                     </div>
                   </div>
@@ -276,7 +276,7 @@
                     class="btn btn-primary"
                     @click="saveChanges()"
                   >
-                    Save Changes
+                    保存更改
                   </button>
                 </div>
               </div>
@@ -285,7 +285,7 @@
 
           <div class="col-md-4">
             <div class="card">
-              <div class="card-header">Cell Locking</div>
+              <div class="card-header">小区锁定</div>
               <div class="card-body">
                 <select
                   class="form-select"
@@ -295,12 +295,12 @@
                 >
                   <option
                     selected
-                    x-text="'Cell Lock: ' + cellLockStatus"
+                    x-text="'锁定状态：' + cellLockStatus"
                   ></option>
                   <option>LTE</option>
                   <option>NR5G-SA</option>
-                  <option>Unlock LTE</option>
-                  <option>Unlock NR5G-SA</option>
+                  <option>LTE 解除锁定</option>
+                  <option>NR5G-SA 解除锁定</option>
                 </select>
 
                 <div class="my-4">
@@ -308,7 +308,7 @@
                   <div id="lteElementsCell" x-show="networkModeCell == 'LTE'">
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1"
-                        >Num Cells</span
+                        >小区号</span
                       >
                       <input
                         type="number"
@@ -384,7 +384,7 @@
                     x-show="networkModeCell == 'LTE'"
                     @click="cellLockEnableLTE()"
                   >
-                    Lock LTE Cells
+                    锁定 LTE 小区
                   </button>
 
                   <button
@@ -393,7 +393,7 @@
                     x-show="networkModeCell == 'NR5G-SA'"
                     @click="cellLockEnableNR()"
                   >
-                    Lock NR5G-SA Cells
+                    锁定 NR5G-SA 小区
                   </button>
 
                   <button
@@ -402,7 +402,7 @@
                     x-show="networkModeCell == 'Unlock LTE'"
                     @click="cellLockDisableLTE()"
                   >
-                    Unlock LTE Cells
+                    解锁 LTE 小区
                   </button>
 
                   <button
@@ -411,13 +411,12 @@
                     x-show="networkModeCell == 'Unlock NR5G-SA'"
                     @click="cellLockDisableNR()"
                   >
-                    Unlock NR5G-SA Cells
+                    解锁 NR5G-SA 小区
                   </button>
                 </div>
               </div>
               <div class="card-footer">
-                Cell Locking only works for the primary cell and is not
-                persistent across reboots.
+                小区锁定仅适用于主服务小区，重启后失效。
               </div>
             </div>
           </div>
@@ -430,11 +429,11 @@
               class="loading-text"
               style="display: flex; flex-direction: column"
             >
-              <h3>Initializing Network...</h3>
+              <h3>正在初始化网络。。。</h3>
               <p style="margin-top: 0.5rem">
-                Please wait for
+                请等待
                 <span x-text="countdown" style="font-weight: 500"></span>
-                seconds.
+                秒。
               </p>
             </div>
           </div>
@@ -494,8 +493,8 @@
           updatedLockedBands: null,
           sim: "-",
           newSim: null,
-          cellLockStatus: "Unknown",
-          bands: "Fetching Bands...",
+          cellLockStatus: "未知",
+          bands: "获取频段中。。。",
           isGettingBands: false,
           rawdata: null,
 
