@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Simple Admin</title>
+  <title>模组管理</title>
   <!-- 导入自定义和Bootstrap样式 -->
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -22,7 +22,7 @@
     <div class="container my-4" x-data="fetchSMS()">
       <nav class="navbar navbar-expand-lg mt-2">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/"><span class="mb-0 h4">Simple Admin</span></a>
+          <a class="navbar-brand" href="/"><span class="mb-0 h4">模组管理</span></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="切换导航">
             <span class="navbar-toggler-icon"></span>
@@ -30,25 +30,25 @@
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 ml-4 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/">首页</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/network.html">Simple Network</a>
+                <a class="nav-link" href="/network.html">网络</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/scanner.html">Simple Scan</a>
+                <a class="nav-link" href="/scanner.html">扫描</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/settings.html">Simple Settings</a>
+                <a class="nav-link" href="/settings.html">设置</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/sms.html">SMS</a>
+                <a class="nav-link active" aria-current="page" href="/sms.html">短信</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/console">Console</a>
+                <a class="nav-link" href="/console">终端</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/deviceinfo.html">Device Information</a>
+                <a class="nav-link" href="/deviceinfo.html">设备</a>
               </li>
             </ul>
             <span class="navbar-text">
@@ -62,7 +62,7 @@
       <div class="row mt-5 mb-4">
         <div class="col">
           <div class="card">
-            <div class="card-header">SMS Inbox</div>
+            <div class="card-header">短信接收</div>
             <div class="card-body">
               <div class="card-text">
                 <div class="col">
@@ -72,7 +72,7 @@
                         overflow-x: hidden;
                       ">
                     <div x-show="isLoading">
-                      <h4>Fetching SMS...</h4>
+                      <h4>正在获取短信。。。</h4>
                     </div>
                     <table class="table table-hover border-success" x-show="!isLoading">
                       <tbody>
@@ -80,7 +80,7 @@
                         <!-- Display when there are no messages -->
                         <template x-if="messages.length === 0 && !isLoading">
                           <div>
-                            <p>Inbox is Empty</p>
+                            <p>收件箱为空</p>
                           </div>
                         </template>
                         <!-- 循环显示短信消息 -->
@@ -93,10 +93,10 @@
                                   x-model="selectedMessages" />
                                 <div class="row column-gap-1 mb-2">
                                   <div class="col-md-3">
-                                    <p x-text="'Sender: ' + senders[index]"></p>
+                                    <p x-text="'来自：' + senders[index]"></p>
                                   </div>
                                   <div class="col">
-                                    <p x-text="'Date and Time: ' + dates[index]"></p>
+                                    <p x-text="'时间：' + dates[index]"></p>
                                   </div>
                                 </div>
                                 <div class="col-md-9">
@@ -117,7 +117,7 @@
             <div class="card-body border-top" x-show="messages.length > 0">
               <div class="form-check">
                 <input id="selectAllCheckbox" class="form-check-input" type="checkbox" @change="toggleAll($event)" />
-                <label class="form-check-label">Select All</label>
+                <label class="form-check-label">全选</label>
               </div>
             </div>
             <div class="card-footer">
@@ -125,12 +125,12 @@
                 <!-- 刷新按钮 -->
                 <!-- Refresh button -->
                 <button class="btn btn-success" type="button" @click="init()">
-                  Refresh
+                  刷新
                 </button>
                 <!-- 删除选中短信按钮 -->
                 <!-- Delete selected SMS button -->
                 <button class="btn btn-danger" type="button" @click="deleteSelectedSMS()">
-                  Delete Selected SMS
+                  删除所选
                 </button>
               </div>
             </div>
@@ -140,21 +140,21 @@
       <div class="row mt-5 mb-4">
         <div class="col">
           <div class="card">
-            <div class="card-header">Send Message</div>
+            <div class="card-header">短信发送</div>
             <div class="card-body">
               <div class="mb-3">
-                <label for="phoneNumber" class="form-label">Recipient's Number</label>
+                <label for="phoneNumber" class="form-label">收件号码</label>
                 <input type="text" class="form-control" id="phoneNumber" x-model="phoneNumber"
-                  placeholder="Enter the recipient's number." />
+                  placeholder="请输入收件人号码" />
               </div>
               <div class="mb-3">
-                <label for="messageToSend" class="form-label">SMS Content</label>
+                <label for="messageToSend" class="form-label">短信内容</label>
                 <textarea class="form-control" id="messageToSend" rows="3" x-model="messageToSend"
-                  placeholder="Enter SMS content."></textarea>
+                  placeholder="请输入短信的内容"></textarea>
               </div>
               <div id="notification" class="alert" style="display: none;"></div>
               <button class="btn btn-primary" @click="sendSMS()">
-                Send SMS
+                发送短信
               </button>
             </div>
           </div>
