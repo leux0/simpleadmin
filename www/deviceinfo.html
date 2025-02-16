@@ -441,11 +441,11 @@
             this.iccid = lines[9].trim().replace("+ICCID: ", "");
             this.imei = lines[11].trim();
             this.lanIp = lines[13].trim().split(",")[3];
-            this.wwanIpv4 = lines[15].trim().split(",")[4].replace(/"/g, "");
-            this.wwanIpv6 = lines[16].trim().split(",")[4].replace(/"/g, "");
+            this.wwanIpv4 = lines[15].trim().split(",")[3].replace(/"/g, "");
+            this.wwanIpv6 = lines[16].trim().split(",")[3].replace(/"/g, "");
 
             try {
-              this.phoneNumber = lines[18]
+              this.phoneNumber = lines[15]
                 .trim()
                 .split(",")[1]
                 .replace(/"/g, "");
