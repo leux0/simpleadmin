@@ -408,7 +408,7 @@
 
           fetchATCommand() {
             this.atcmd =
-              'AT+CGMI;+CGMM;+QGMR;+CIMI;+ICCID;+CGSN;+QMAP="LANIP";+CNUM';
+              'AT+CGMI;+CGMM;+QGMR;+CIMI;+ICCID;+CGSN;+QMAP="LANIP";+QMAP="WWAN";+CNUM';
             this.isLoading = true;
             fetch(
               "/cgi-bin/get_atcommand?" +
