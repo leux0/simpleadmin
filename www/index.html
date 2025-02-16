@@ -1157,13 +1157,13 @@
                   // find the value from line "IPV4"
                   this.ipv4 = lines
                     .find((line) => line.includes("IPV4"))
-                    .split(",")[4]
+                    .split(",")[3]
                     .replace(/"/g, "");
 
                   // find the value from line "IPV6"
                   this.ipv6 = lines
                     .find((line) => line.includes("IPV6"))
-                    .split(",")[4]
+                    .split(",")[3]
                     .replace(/"/g, "");
 
                   // Traffic Stats
