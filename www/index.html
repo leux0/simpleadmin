@@ -1043,7 +1043,7 @@
                   }
 
                   // --- PCI ---
-                  if (
+                /*if (
                     this.networkMode == "5G SA TDD" ||
                     this.networkMode == "5G SA FDD"
                   ) {
@@ -1144,7 +1144,14 @@
                   } else {
                     this.pccPCI = "0";
                     this.sccPCI = "-";
-                  }
+                  }*/
+
+                  const pcc_pci = lines
+                    .find((line) => line.includes('+QENG: "servingcell"'))
+                    .split(",")[7]
+                    .replace(/"/g, "");
+                  this.pccPCI = pcc_pci;
+                  this.sccPCI = "-";
 
                   // --- IPv4 and IPv6 ---
                   // find the value from line "IPV4"
