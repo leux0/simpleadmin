@@ -408,7 +408,7 @@
 
           fetchATCommand() {
             this.atcmd =
-              'AT+CGMI;+CGMM;+QGMR;+CIMI;+ICCID;+CGSN;+QMAP="LANIP";+QMAP="WWAN";+CNUM';
+              'AT+CGMI;+CGMM;+QGMR;+CIMI;+ICCID;+CGSN;+QMAP="LANIP";+CNUM';
             this.isLoading = true;
             fetch(
               "/cgi-bin/get_atcommand?" +
@@ -437,14 +437,14 @@
             this.manufacturer = lines[1].trim();
             this.modelName = lines[3].trim();
             this.firmwareVersion = lines[5].trim();
+            this.imsi = lines[7].trim();
+            this.iccid = lines[9].trim().replace("+ICCID: ", "");
             this.imei = lines[11].trim();
             this.lanIp = lines[13].trim().split(",")[3];
             this.wwanIpv4 = lines[15].trim().split(",")[4].replace(/"/g, "");
             this.wwanIpv6 = lines[16].trim().split(",")[4].replace(/"/g, "");
 
             try {
-              this.imsi = lines[7].trim();
-              this.iccid = lines[9].trim().replace("+ICCID: ", "");
               this.phoneNumber = lines[18]
                 .trim()
                 .split(",")[1]
