@@ -451,10 +451,10 @@
                 .replace(/"/g, "");
 
               if (this.phoneNumber === "") {
-                this.phoneNumber = "Unknown";
+                this.phoneNumber = "未知";
               }
             } catch (error) {
-              this.phoneNumber = "No SIM Card Inserted or Detected";
+              this.phoneNumber = "未插入或未检测到SIM卡";
               this.imsi = " ";
               this.iccid = " ";
             }
