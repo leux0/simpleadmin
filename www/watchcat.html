@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Simple Admin</title>
+    <title>模组管理</title>
     <!-- Import all the bootstrap css files from css folder -->
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -28,7 +28,7 @@
         <nav class="navbar navbar-expand-lg mt-2">
           <div class="container-fluid">
             <a class="navbar-brand" href="/"
-              ><span class="mb-0 h4">Simple Admin</span></a
+              ><span class="mb-0 h4">模组管理</span></a
             >
             <button
               class="navbar-toggler"
@@ -44,31 +44,31 @@
             <div class="collapse navbar-collapse" id="navbarText">
               <ul class="navbar-nav me-auto mb-2 ml-4 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" href="/">Home</a>
+                  <a class="nav-link" href="/">首页</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/network.html">Simple Network</a>
+                  <a class="nav-link" href="/network.html">网络</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/scanner.html">Simple Scan</a>
+                  <a class="nav-link" href="/scanner.html">扫描</a>
                 </li>
                 <li class="nav-item">
                   <a
                     class="nav-link active"
                     href="/settings.html"
                     aria-current="page"
-                    >Simple Settings</a
+                    >设置</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/sms.html">SMS</a>
+                  <a class="nav-link" href="/sms.html">短信</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/console">Console</a>
+                  <a class="nav-link" href="/console">终端</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/deviceinfo.html"
-                    >Device Information</a
+                    >设备</a
                   >
                 </li>
               </ul>
@@ -83,13 +83,13 @@
         <div class="row mt-3 mb-4">
           <div class="col">
             <div class="card">
-              <div class="card-header">Simple Watchcat</div>
+              <div class="card-header">网络监控</div>
               <div class="card-body">
                 <div class="card-text">
                   <div class="row mt-3 mb-5 align-content-center mx-4">
                     <div class="col">
                       <div class="mt-3">
-                        <label> Enable Watchcat </label>
+                        <label> 开启监控 </label>
                       </div>
                     </div>
                     <div class="col-5">
@@ -112,15 +112,15 @@
                   <div class="row mt-3 mb-3 align-items-center mx-4">
                     <div class="col">
                       <div class="mt-3 mb-4">
-                        <label> Track IP </label>
+                        <label> 追踪 IP </label>
                       </div>
 
                       <div class="mt-3 mb-4">
-                        <label> Ping Request Timeout </label>
+                        <label> Ping 请求超时 </label>
                       </div>
 
                       <div class="mt-3 mb-4">
-                        <label> Ping Failure Amount </label>
+                        <label> Ping 失败次数 </label>
                       </div>
                     </div>
 
@@ -131,7 +131,7 @@
                           aria-label="Select Site to Ping"
                           x-model="trackIP"
                         >
-                          <option selected>Select IP</option>
+                          <option selected>选择 IP</option>
                           <option value="1.1.1.1">1.1.1.1</option>
                           <option value="8.8.8.8">8.8.8.8</option>
                           <option value="9.9.9.9">9.9.9.9</option>
@@ -144,7 +144,7 @@
                           class="form-control"
                           aria-label="Ping Timeout"
                           aria-describedby="inputGroup-sizing-default"
-                          placeholder="Enter Ping Timeout in Seconds."
+                          placeholder="输入 Ping 超时（以秒为单位）。"
                           x-model="pingTimeout"
                         />
                       </div>
@@ -155,7 +155,7 @@
                           class="form-control"
                           aria-label="Sizing example input"
                           aria-describedby="inputGroup-sizing-default"
-                          placeholder="Enter Ping Failure Amount."
+                          placeholder="输入 Ping 失败次数。"
                           x-model="pingFailureCount"
                         />
                       </div>
@@ -164,7 +164,7 @@
                 </div>
               </div>
               <div class="card-footer">
-                Still under development. Coming soon...
+                正在开发中，敬请期待。。。
               </div>
             </div>
           </div>
@@ -172,7 +172,7 @@
         <div class="row mt-3 mb-3">
           <div class="col">
             <div class="card">
-              <div class="card-header">Simple Watchcat Logs</div>
+              <div class="card-header">网络监控日志</div>
               <div class="card-body">
                 <div class="card-text">
                   <div class="form-floating">
@@ -184,12 +184,12 @@
                       x-text="response"
                       readonly
                     ></textarea>
-                    <label for="floatingTextarea2">Logs</label>
+                    <label for="floatingTextarea2">日志</label>
                   </div>
                 </div>
               </div>
               <div class="card-footer">
-                No log is provided when successfully enabling the watchcat.
+                成功启用网络监控后将不提供日志。
               </div>
             </div>
           </div>
@@ -226,7 +226,7 @@
               })
               .catch((error) => {
                 console.error("Error:", error); // Handle any errors
-                this.response = "An error occurred.";
+                this.response = "发生错误。";
               });
           },
 
@@ -261,7 +261,7 @@
               })
               .catch((error) => {
                 console.error("Error:", error); // Handle any errors
-                this.response = "An error occurred.";
+                this.response = "发生错误。";
               });
           },
 
