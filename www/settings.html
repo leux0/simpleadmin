@@ -564,7 +564,7 @@
 
           fetchCurrentSettings() {
             this.fetchATCommand =
-              'AT+QMAP="MPDN_RULE";+QMAP="DHCPV4DNS";+QCFG="usbnet"';
+              'AT+QMAP="MPDN_RULE";+QCFG="usbnet";+QMAP="DHCPV4DNS"';
             fetch(
               "/cgi-bin/get_atcommand?" +
                 new URLSearchParams({
@@ -581,7 +581,7 @@
                 console.log("Lines: ", currentData);
 
                 const testEthpass = currentData[1].match(
-                  /\+QMAP: "MPDN_rule",0,0,0,0,0/
+                  /\+QMAP: "mPDN_rule",0,0,0,0,0/
                 );
 
                 if (testEthpass) {
@@ -590,7 +590,7 @@
                   this.ipPassStatus = true;
                 }
 
-                const testDNSProxy = currentData[6].match(
+                const testDNSProxy = currentData[9].match(
                   /\+QMAP: "DHCPV4DNS","enable"/
                 );
 
@@ -600,7 +600,7 @@
                   this.DNSProxyStatus = false;
                 }
 
-                const testUSBNet = currentData[8].match(
+                const testUSBNet = currentData[7].match(
                   /\+QCFG: "usbnet",(\d)/
                 );
 
