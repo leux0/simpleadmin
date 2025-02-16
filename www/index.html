@@ -829,22 +829,22 @@
                   // --- Bands ---
                   // Get all the values with LTE BAND n (for example, LTE BAND 3, LTE BAND 1) and then store them in an array
                   const bands = lines.filter((line) =>
-                    line.includes("LTE BAND")
+                    line.includes("LTE")
                   );
 
                   // since it includes the whole line, we need to extract the band part only
                   for (let i = 0; i < bands.length; i++) {
-                    bands[i] = bands[i].split(",")[3].replace(/"/g, "");
+                    bands[i] = bands[i].split(",")[9].replace(/"/g, "");
                   }
 
                   // Get all the values with NR BAND n (for example, NR BAND 3, NR BAND 1) and then store them in an array
                   const bands_5g = lines.filter((line) =>
-                    line.includes("NR5G BAND")
+                    line.includes("NR5G-SA")
                   );
 
                   // since it includes the whole line, we need to extract the band number only
                   for (let i = 0; i < bands_5g.length; i++) {
-                    bands_5g[i] = bands_5g[i].split(",")[3].replace(/"/g, "");
+                    bands_5g[i] = bands_5g[i].split(",")[10].replace(/"/g, "");
                   }
 
                   // Combine the bands and bands_5g arrays seperated by a comma. however, bands or bands_5g can be empty
