@@ -152,3 +152,24 @@ $HTTP["url"] =~ "(^/console)" {
 
 ```
 
+
+# 界面展示
+
+1. **首页**
+![index.html](script/index.jpg)
+
+2. **网络**
+![network.html](script/network.jpg)
+
+3. **扫描**
+![scanner.html](script/scanner.jpg)
+
+4. **设置**
+![settings.html](script/settings.jpg)
+
+5. **短信**
+![sms.html](script/sms.jpg)
+
+6. **设备**
+![deviceinfo.html](script/deviceinfo.jpg)
+
