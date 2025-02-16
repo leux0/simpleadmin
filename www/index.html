@@ -926,7 +926,7 @@
                   }
 
                   // --- E/ARFCN ---
-                  if (
+                /*if (
                     this.networkMode == "5G SA TDD" ||
                     this.networkMode == "5G SA FDD"
                   ) {
@@ -1016,6 +1016,28 @@
                     } catch (error) {
                       this.earfcns = lte_pcc_arfcn.replace(/,/g, "");
                     }
+                  } else {
+                    this.earfcns = "Unknown E/ARFCN";
+                  } */
+
+                  if (
+                    this.networkMode == "5G SA TDD" ||
+                    this.networkMode == "5G SA FDD"
+                  ) {
+                      const earfcns = lines
+                        .find((line) => line.includes('+QENG: "servingcell"'))
+                        .split(",")[9]
+                        .replace(/"/g, "");
+                      this.earfcns = earfcns;
+                  } else if (
+                    this.networkMode == "4G LTE FDD" ||
+                    this.networkMode == "4G LTE TDD"
+                  ) {
+                      const earfcns = lines
+                        .find((line) => line.includes('+QENG: "servingcell"'))
+                        .split(",")[8]
+                        .replace(/"/g, "");
+                      this.earfcns = earfcns;
                   } else {
                     this.earfcns = "Unknown E/ARFCN";
                   }
